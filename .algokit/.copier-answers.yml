@@ -1,0 +1,10 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: 2.0.11
+_src_path: gh:algorandfoundation/algokit-fullstack-template
+author_email: 68940073+paulOgwulumba@users.noreply.github.com
+author_name: Paul Ogwulumba
+cloud_provider: none
+contract_name: CrowdFund
+preset_name: production
+project_name: crowd_fund_typescript
+

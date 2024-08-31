@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+      - '.vscode/**'
+      - '.idea/**'
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  crowd_fund_typescript-contracts-validate:
+    name: Run crowd_fund_typescript-contracts release
+    secrets: inherit
+    uses: ./.github/workflows/crowd_fund_typescript-contracts-ci.yaml
+
+  crowd_fund_typescript-contracts-release:
+    name: Run crowd_fund_typescript-contracts release
+    secrets: inherit
+    uses: ./.github/workflows/crowd_fund_typescript-contracts-cd.yaml
+    needs: crowd_fund_typescript-contracts-validate
+
+  crowd_fund_typescript-frontend-validate:
+    name: Run crowd_fund_typescript-frontend release
+    secrets: inherit
+    uses: ./.github/workflows/crowd_fund_typescript-frontend-ci.yaml
+
+  crowd_fund_typescript-frontend-release:
+    name: Run crowd_fund_typescript-frontend release
+    secrets: inherit
+    uses: ./.github/workflows/crowd_fund_typescript-frontend-cd.yaml
+    needs: crowd_fund_typescript-frontend-validate

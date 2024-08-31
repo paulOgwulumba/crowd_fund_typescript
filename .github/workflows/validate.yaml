@@ -1,0 +1,14 @@
+name: Pull Request validation
+
+on: [pull_request]
+
+
+jobs:
+  crowd_fund_typescript-contracts-ci:
+    name: Run crowd_fund_typescript-contracts validation
+    uses: ./.github/workflows/crowd_fund_typescript-contracts-ci.yaml
+
+  crowd_fund_typescript-frontend-ci:
+    name: Run crowd_fund_typescript-frontend validation
+    uses: ./.github/workflows/crowd_fund_typescript-frontend-ci.yaml
+
